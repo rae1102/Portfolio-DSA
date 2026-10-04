@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Convert to Uppercase</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Convert to Uppercase {% endblock %}
+
+{% block content %}
     <h1>Convert String to Uppercase</h1>
 
     <form action="/works" method="post">
@@ -15,5 +14,5 @@
     {% if result %}
     <p>Converted string: {{ result }}</p>
     {% endif %}
-</body>
-</html>
+
+{% endblock %}

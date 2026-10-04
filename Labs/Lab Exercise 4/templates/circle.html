@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Convert to Uppercase</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Convert to Uppercase {% endblock %}
+
+
+{% block content %}
     <h1>area of circle</h1>
     <nav href="index.html"></nav>
 
@@ -16,5 +16,6 @@
     {% if result %}
     <p>Area of the circle: {{ result }}</p>
     {% endif %}
-</body>
-</html>
+
+{% endblock %}
+
