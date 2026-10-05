@@ -1,19 +1,75 @@
 {% extends "base.html" %}
 
-{% block title %}Circle {% endblock %}
-
+{% block title %}Convert to Uppercase{% endblock %}
 
 {% block content %}
-    <h1>Area of circle</h1>
-    <form action="/works/area/circle" method="post">
-        <label for="radius">Enter a radius:</label>
-        <input type="text" id="radius" name="radius">
-        <input type="submit" value="Compute">
-    </form>
 
-    {% if result %}
-    <p>Area of the circle: {{ result }}</p>
-    {% endif %}
+<div class="page-heading text-center">
+    <h1>Convert to Uppercase</h1>
+    <p>Convert any text into uppercase letters.</p>
+    <div class="heading-line mx-auto"></div>
+</div>
+
+{% if result %}
+<div class="result-display text-center mb-5">
+    <span class="result-label">Converted String</span>
+    <div class="result-value">
+        {{ result }}
+    </div>
+</div>
+{% endif %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-7">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <div class="text-center mb-4">
+                    <div class="shape-icon">
+                        <i class="bi bi-type"></i>
+                    </div>
+                </div>
+
+                <form action="/works" method="post">
+
+                    <label
+                        for="inputString"
+                        class="form-label"
+                    >
+                        Enter a string
+                    </label>
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            id="inputString"
+                            name="inputString"
+                            class="form-control"
+                            placeholder="Enter your text..."
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Convert
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}
-

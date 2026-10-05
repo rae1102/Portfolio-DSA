@@ -1,41 +1,140 @@
 {% extends "base.html" %}
+
 {% block title %}My Profile{% endblock %}
 
 {% block content %}
-    <h1>Welcome to my Profile Page</h1>
 
-    <h2>Jose Reynald V. Navarro</h2>
+<div class="page-heading text-center">
+    <h1>My Profile</h1>
+    <p>A little information about me.</p>
+    <div class="heading-line mx-auto"></div>
+</div>
 
-    <div class="info">
-        <h3>About me</h3>
-        <p>Section: BSCPE 2-1</p>
-        <p>Year Level: 2nd Year College</p>
-        <p>Course: BS Computer Engineering</p>
-        <p>Subject: Data Structures and Algorithms</p>
+<div class="row justify-content-center">
 
-        <p>Some of my favorite sayings/mottos are:</p>
-        <ul>
-            <li>“Dreams save us. Dreams lift us up and transform us.”</li>
-            <li>"Look to the stars for hope burns bright."</li>
-            <li>“Sometimes, the questions are complicated and the answers are simple.”</li>
-        </ul>
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <!-- Profile Header -->
+                <div class="text-center mb-4">
+
+                    <div class="profile-photo mx-auto mb-3">
+    <img
+        src="{{ url_for('static', filename='reyn.jpg') }}"
+        alt="Profile picture"
+    >
+</div>
+
+                    <h2 class="mb-1">
+                        Jose Reynald V. Navarro
+                    </h2>
+
+                    <p class="text-muted mb-0">
+                        BS Computer Engineering
+                    </p>
+
+                </div>
+
+
+                <hr>
+
+
+                <!-- Personal Information -->
+                <div class="info mt-4">
+
+                    <h3 class="card-title mb-3">
+                        Personal Information
+                    </h3>
+
+                    <p>
+                        <strong>Section:</strong>
+                        BSCPE 2-1
+                    </p>
+
+                    <p>
+                        <strong>Year Level:</strong>
+                        2nd Year College
+                    </p>
+
+                    <p>
+                        <strong>Course:</strong>
+                        BS Computer Engineering
+                    </p>
+
+                    <p>
+                        <strong>Subject:</strong>
+                        Data Structures and Algorithms
+                    </p>
+
+                </div>
+
+
+                <hr class="my-4">
+
+
+                <!-- Hobbies and Interests -->
+                <h3 class="card-title">
+                    Hobbies & Interests
+                </h3>
+
+                <ul class="outline-list">
+
+                    <li>
+                        <i class="bi bi-code-slash me-2 text-warning"></i>
+                        Programming and software development
+                    </li>
+
+                    <li>
+                        <i class="bi bi-controller me-2 text-warning"></i>
+                        Gaming
+                    </li>
+
+                    <li>
+                        <i class="bi bi-music-note-beamed me-2 text-warning"></i>
+                        Playing guitar and learning lead guitar
+                    </li>
+
+                    <li>
+                        <i class="bi bi-lightbulb me-2 text-warning"></i>
+                        Learning new technologies and programming concepts
+                    </li>
+
+                </ul>
+
+
+                <hr class="my-4">
+
+
+                <!-- Favorite Sayings -->
+                <h3 class="card-title">
+                    My Favorite Sayings
+                </h3>
+
+                <ul class="outline-list">
+
+                    <li>
+                        “Dreams save us. Dreams lift us up and transform us.”
+                    </li>
+
+                    <li>
+                        “Look to the stars for hope burns bright.”
+                    </li>
+
+                    <li>
+                        “Sometimes, the questions are complicated and the answers are simple.”
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="interests">
-        <h3>My hobbies</h3>
-        <ul>
-            <li>🎮 Gaming</li>
-            <li>💻 Programming</li>
-            <li>🎸 Playing guitar</li>
-        </ul>
-        <h3>My Interests</h3>
-        <ul>
-            <li>Role Playing Games (ie.Final Fantasy, The Witcher 3, The Elder Scrolls Series)</li>
-            <li>Superheroes and Comic Books</li>
-            <li>Technology</li>
-            <li>Game and Web Development</li>
-            <li>Heavy music</li>
-            <li>Vintage bicycles</li>
-        </ul>
-    </div>
+</div>
+
 {% endblock %}

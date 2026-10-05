@@ -1,0 +1,663 @@
+/* ========================================
+   THEME VARIABLES
+   ======================================== */
+
+:root {
+    --bg: #0b0b0d;
+    --surface: #131315;
+    --surface-light: #19191c;
+
+    --border: #2b2b30;
+    --border-light: #3b3b41;
+
+    --gold: #d4af37;
+    --gold-light: #e6c85c;
+    --gold-dark: #a88925;
+
+    --text: #eeeeef;
+    --text-secondary: #b9b9be;
+    --text-muted: #85858c;
+}
+
+
+/* ========================================
+   GENERAL
+   ======================================== */
+
+body {
+    background:
+        radial-gradient(
+            circle at top,
+            #1a1a1e 0%,
+            var(--bg) 45%
+        );
+
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--text);
+}
+
+
+/* Main heading */
+
+h1 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+
+/* Secondary headings */
+
+h2,
+h3 {
+    font-weight: 600;
+}
+
+
+/* Body text */
+
+p {
+    color: var(--text-secondary);
+}
+
+
+/* Muted text */
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+
+/* Links */
+
+a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--gold-light);
+}
+
+
+/* Selection */
+
+::selection {
+    background-color: var(--gold);
+    color: #111;
+}
+
+
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.navbar {
+    background-color: rgba(11, 11, 13, 0.96) !important;
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.navbar-brand {
+    color: var(--gold) !important;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    letter-spacing: 1px;
+}
+
+
+.navbar-brand i {
+    margin-right: 6px;
+}
+
+
+.nav-link {
+    color: #c8c8cc !important;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.nav-link:hover {
+    color: var(--gold) !important;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   PAGE HEADINGS
+   ======================================== */
+
+.page-heading {
+    margin-bottom: 2rem;
+}
+
+
+.page-heading h1 {
+    margin-bottom: 0.5rem;
+}
+
+
+.page-heading p {
+    color: var(--text-muted);
+}
+
+
+/* Gold line underneath headings */
+
+.heading-line {
+    width: 45px;
+    height: 3px;
+
+    background-color: var(--gold);
+
+    border-radius: 10px;
+
+    margin-top: 12px;
+}
+
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+.card {
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.card:hover {
+    border-color: var(--border-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.card-title {
+    color: var(--gold);
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+/* ========================================
+   OUTLINED LISTS
+   ======================================== */
+
+ul.outline-list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 1rem 0 0;
+}
+
+
+ul.outline-list li {
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-left: 3px solid var(--gold);
+
+    border-radius: 8px;
+
+    padding: 14px 18px;
+
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+ul.outline-list li:hover {
+    background-color: var(--surface-light);
+
+    border-color: var(--border-light);
+
+    border-left-color: var(--gold-light);
+
+    transform: translateX(4px);
+}
+
+
+/* ========================================
+   WORKS LIST
+   ======================================== */
+
+.work-list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+.work-list li {
+    margin-bottom: 10px;
+}
+
+
+.work-list a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    color: var(--text-secondary);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.work-list a:hover {
+    background-color: var(--surface-light);
+
+    border-color: var(--gold-dark);
+
+    color: var(--gold-light);
+
+    transform: translateX(5px);
+}
+
+
+.work-number {
+    color: var(--gold);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 600;
+
+    min-width: 30px;
+}
+
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.form-label {
+    color: var(--text-secondary);
+
+    font-weight: 500;
+}
+
+
+.form-control {
+    background-color: #0e0e10;
+
+    border: 1px solid #343438;
+
+    color: white;
+
+    border-radius: 8px;
+}
+
+
+.form-control:focus {
+    background-color: #0e0e10;
+
+    color: white;
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(212, 175, 55, 0.12);
+}
+
+
+.form-control::placeholder {
+    color: #6f6f75;
+}
+
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary,
+.btn-success {
+    background-color: var(--gold);
+
+    border-color: var(--gold);
+
+    color: #111;
+
+    font-weight: 600;
+
+    border-radius: 7px;
+}
+
+
+.btn-primary:hover,
+.btn-success:hover {
+    background-color: var(--gold-dark);
+
+    border-color: var(--gold-dark);
+
+    color: white;
+}
+
+
+.btn-danger {
+    background-color: #8d2929;
+
+    border-color: #8d2929;
+
+    border-radius: 7px;
+}
+
+
+.btn-outline-danger {
+    color: #d87878;
+
+    border-color: #753030;
+}
+
+
+.btn-outline-danger:hover {
+    background-color: #8d2929;
+
+    border-color: #8d2929;
+
+    color: white;
+}
+
+
+.btn-outline-light {
+    border-color: #55555b;
+
+    color: #dddddd;
+
+    border-radius: 7px;
+}
+
+
+.btn-outline-light:hover {
+    background-color: var(--gold);
+
+    border-color: var(--gold);
+
+    color: #111;
+}
+
+
+/* ========================================
+   LINKED LIST VALUES
+   ======================================== */
+
+.badge.text-bg-primary {
+    background-color: var(--gold) !important;
+
+    color: #111 !important;
+
+    font-weight: 600;
+
+    border-radius: 6px;
+}
+
+
+/* ========================================
+   ALERTS
+   ======================================== */
+
+.alert {
+    border-radius: 9px;
+}
+
+
+.alert-success {
+    background-color: #122218;
+
+    border-color: #285437;
+
+    color: #9ee2b3;
+}
+
+
+.alert-danger {
+    background-color: #241313;
+
+    border-color: #5c2929;
+
+    color: #e8a0a0;
+}
+
+
+/* ========================================
+   PROFILE / INFORMATION
+   ======================================== */
+
+.info p {
+    margin-bottom: 8px;
+}
+
+
+.info strong {
+    color: var(--gold);
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background-color: #09090a;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.footer-credit {
+    font-size: 0.8rem;
+
+    color: #5f5f65 !important;
+}
+
+
+/* ========================================
+   DIVIDERS
+   ======================================== */
+
+hr {
+    border-color: var(--border);
+
+    opacity: 1;
+}
+
+.profile-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold-dark);
+    border-radius: 50%;
+
+    background-color: var(--surface-light);
+
+    color: var(--gold);
+
+    font-size: 2rem;
+}
+
+/* ========================================
+   WORK / SHAPE ICONS
+   ======================================== */
+
+.shape-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--surface-light);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 12px;
+
+    color: var(--gold);
+
+    font-size: 2.2rem;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+
+.shape-icon i {
+    line-height: 1;
+}
+
+
+/* ========================================
+   WORK LIST ICONS
+   ======================================== */
+
+.work-list a > i:not(.ms-auto) {
+    color: var(--gold);
+
+    width: 25px;
+
+    text-align: center;
+}
+
+
+.work-list a:hover > i:not(.ms-auto) {
+    color: var(--gold-light);
+}
+
+/* ========================================
+   LARGE RESULT DISPLAY
+   ======================================== */
+
+.result-display {
+    padding: 20px 15px;
+}
+
+.result-display .result-label {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.result-display .result-value {
+    color: var(--gold-light);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    word-break: break-word;
+
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+/* ========================================
+   PROFILE PHOTO
+   ======================================== */
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    padding: 4px;
+
+    background-color: var(--gold);
+
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.15);
+
+    overflow: hidden;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+}

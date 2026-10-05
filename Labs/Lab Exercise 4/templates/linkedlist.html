@@ -3,21 +3,189 @@
 {% block title %}Linked List{% endblock %}
 
 {% block content %}
-    <h1>Linked List</h1>
 
-    <h2>Current List</h2>
+<div class="container py-4">
 
-    <h2>Insert at End</h2>
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">Linked List</h1>
+        <p class="text-muted">Manage and explore your linked list.</p>
+    </div>
 
-    <form action="/works/linkedlist" method="post">
-        <label for="insert_end">Enter a value:</label>
-        <input type="text" id="insert_end" name="insert_end">
-        <input type="submit" value="Insert">
-    </form>
+    <!-- Current List -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="card-title">Current List</h3>
 
-    {% if values %}
-        <p>{{ values }}</p>
-    {% else %}
-        <p>The list is empty.</p>
-    {% endif %}
+            {% if values %}
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    {% for value in values %}
+                        <span class="badge text-bg-primary fs-6 p-2">
+                            {{ value }}
+                        </span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted mt-3 mb-0">The list is empty.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Insert -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="card-title mb-3">Insert</h3>
+
+            <form action="/works/linkedlist" method="post" class="mb-3">
+                <label for="insert_beginning" class="form-label">
+                    Insert at Beginning
+                </label>
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="insert_beginning"
+                        name="insert_beginning"
+                        class="form-control"
+                        placeholder="Enter a value"
+                    >
+                    <button type="submit" class="btn btn-primary">
+                        Insert
+                    </button>
+                </div>
+            </form>
+
+            <form action="/works/linkedlist" method="post" class="mb-3">
+                <label for="insert_end" class="form-label">
+                    Insert at End
+                </label>
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="insert_end"
+                        name="insert_end"
+                        class="form-control"
+                        placeholder="Enter a value"
+                    >
+                    <button type="submit" class="btn btn-primary">
+                        Insert
+                    </button>
+                </div>
+            </form>
+
+            <form action="/works/linkedlist" method="post">
+                <label class="form-label">Insert After Node</label>
+
+                <div class="row g-2">
+                    <div class="col-md-5">
+                        <input
+                            type="text"
+                            id="insert_after_node"
+                            name="insert_after_node"
+                            class="form-control"
+                            placeholder="Existing value"
+                        >
+                    </div>
+
+                    <div class="col-md-5">
+                        <input
+                            type="text"
+                            id="insert_after_value"
+                            name="insert_after_value"
+                            class="form-control"
+                            placeholder="New value"
+                        >
+                    </div>
+
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100">
+                            Insert
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Remove -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="card-title mb-3">Remove</h3>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <form action="/works/linkedlist" method="post">
+                    <button
+                        type="submit"
+                        name="remove_beginning"
+                        class="btn btn-outline-danger"
+                    >
+                        Remove Beginning
+                    </button>
+                </form>
+
+                <form action="/works/linkedlist" method="post">
+                    <button
+                        type="submit"
+                        name="remove_end"
+                        class="btn btn-outline-danger"
+                    >
+                        Remove End
+                    </button>
+                </form>
+            </div>
+
+            <form action="/works/linkedlist" method="post">
+                <label for="remove_value" class="form-label">
+                    Remove Specific Value
+                </label>
+
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="remove_value"
+                        name="remove_value"
+                        class="form-control"
+                        placeholder="Enter value to remove"
+                    >
+                    <button type="submit" class="btn btn-danger">
+                        Remove
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title mb-3">Search</h3>
+
+            <form action="/works/linkedlist" method="post">
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="search_value"
+                        name="search_value"
+                        class="form-control"
+                        placeholder="Enter value to search"
+                    >
+                    <button type="submit" class="btn btn-success">
+                        Search
+                    </button>
+                </div>
+            </form>
+
+            {% if search_result == True %}
+                <div class="alert alert-success mt-3 mb-0">
+                    Value found!
+                </div>
+            {% elif search_result == False %}
+                <div class="alert alert-danger mt-3 mb-0">
+                    Value not found.
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}

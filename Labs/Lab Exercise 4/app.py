@@ -50,11 +50,46 @@ def triangle():
 
 @app.route('/works/linkedlist', methods=["GET", "POST"])
 def linkedlist():
+
     values = linked_list.get_values()
+    search_result = None
+
     if request.method == "POST":
-        insert_end = request.form.get('insert_end', '')
-        values = linked_list.insert_at_end(insert_end)
-    return render_template("linkedlist.html", values=values)
+
+        if 'insert_end' in request.form:
+            insert_end = request.form.get('insert_end', '')
+            linked_list.insert_at_end(insert_end)
+
+        elif 'insert_beginning' in request.form:
+            insert_beginning = request.form.get('insert_beginning', '')
+            linked_list.insert_at_beginning(insert_beginning)
+
+        elif 'insert_after_node' in request.form:
+            insert_after_node = request.form.get('insert_after_node', '')
+            insert_after_value = request.form.get('insert_after_value', '')
+            linked_list.insert_after(insert_after_node, insert_after_value)
+
+        elif 'remove_beginning' in request.form:
+            linked_list.remove_beginning()
+
+        elif 'remove_end' in request.form:
+            linked_list.remove_at_end()
+
+        elif 'remove_value' in request.form:
+            remove_value = request.form.get('remove_value', '')
+            linked_list.remove_at(remove_value)
+
+        elif 'search_value' in request.form:
+            search_value = request.form.get('search_value', '')
+            search_result = linked_list.search(search_value)
+
+        values = linked_list.get_values()
+
+    return render_template(
+        "linkedlist.html",
+        values=values,
+        search_result=search_result
+    )
 
 @app.route('/contact')
 def contact():
