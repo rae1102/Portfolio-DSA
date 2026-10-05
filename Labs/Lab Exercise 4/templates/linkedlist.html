@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Linked List{% endblock %}
+
+{% block content %}
+    <h1>Linked List</h1>
+
+    <h2>Current List</h2>
+
+    <h2>Insert at End</h2>
+
+    <form action="/works/linkedlist" method="post">
+        <label for="insert_end">Enter a value:</label>
+        <input type="text" id="insert_end" name="insert_end">
+        <input type="submit" value="Insert">
+    </form>
+
+    {% if values %}
+        <p>{{ values }}</p>
+    {% else %}
+        <p>The list is empty.</p>
+    {% endif %}
+{% endblock %}

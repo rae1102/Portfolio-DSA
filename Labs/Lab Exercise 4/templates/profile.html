@@ -1,7 +1,41 @@
 {% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
 
 {% block content %}
-    <h1>Welcome to your Profile Page</h1>
-    <p>This is a simple profile page rendered using Flask's templating.</p>
-    <p>Create your profile here with Name, section , course, subject and display your favorite sayings or motto! using html tags </p>
+    <h1>Welcome to my Profile Page</h1>
+
+    <h2>Jose Reynald V. Navarro</h2>
+
+    <div class="info">
+        <h3>About me</h3>
+        <p>Section: BSCPE 2-1</p>
+        <p>Year Level: 2nd Year College</p>
+        <p>Course: BS Computer Engineering</p>
+        <p>Subject: Data Structures and Algorithms</p>
+
+        <p>Some of my favorite sayings/mottos are:</p>
+        <ul>
+            <li>“Dreams save us. Dreams lift us up and transform us.”</li>
+            <li>"Look to the stars for hope burns bright."</li>
+            <li>“Sometimes, the questions are complicated and the answers are simple.”</li>
+        </ul>
+    </div>
+
+    <div class="interests">
+        <h3>My hobbies</h3>
+        <ul>
+            <li>🎮 Gaming</li>
+            <li>💻 Programming</li>
+            <li>🎸 Playing guitar</li>
+        </ul>
+        <h3>My Interests</h3>
+        <ul>
+            <li>Role Playing Games (ie.Final Fantasy, The Witcher 3, The Elder Scrolls Series)</li>
+            <li>Superheroes and Comic Books</li>
+            <li>Technology</li>
+            <li>Game and Web Development</li>
+            <li>Heavy music</li>
+            <li>Vintage bicycles</li>
+        </ul>
+    </div>
 {% endblock %}
