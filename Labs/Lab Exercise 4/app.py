@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
 from linkedlist import LinkedList
+from stack import Stack
 
 
 app = Flask(__name__)
 linked_list = LinkedList()
+sstack = Stack()
 
 @app.route('/')
 def index():
@@ -20,6 +22,7 @@ def works():
         input_string = request.form.get('inputString', '')
         result = input_string.upper()
     return render_template('touppercase.html', result=result)
+
 
 @app.route('/works/area/circle', methods=['GET', 'POST'])
 def circle():
@@ -90,6 +93,40 @@ def linkedlist():
         values=values,
         search_result=search_result
     )
+
+@app.route('/works/stack', methods = ["GET", "POST"])
+def stack():
+    message = None
+    message_type = None
+    values = sstack.get_values()
+
+    if request.method == "POST":
+        if 'push_value' in request.form:
+            push = request.form.get('push_value')
+            sstack.push(push) 
+        elif 'pop' in request.form:
+            popped = sstack.pop()
+            if popped is None:
+                    message = "The stack is empty, nothing to pop."
+                    message_type = "danger"
+            else:
+                    message = f"Popped: {popped}"
+                    message_type = "success"  
+        elif 'peek' in request.form:
+            peek = sstack.peek()
+            if peek is None:
+                message = "The stack is empty, nothing to peek."
+                message_type = "danger"
+            else:
+                message = f"Peek: {peek}"
+                message_type = "success"
+            
+
+    values = sstack.get_values()
+        
+
+            
+    return render_template("stack.html", values = values, message=message, message_type=message_type)
 
 @app.route('/contact')
 def contact():

@@ -1,75 +1,84 @@
 {% extends "base.html" %}
 
-{% block title %}Convert to Uppercase{% endblock %}
+{% block title %}Circle Calculator{% endblock %}
 
 {% block content %}
-
-<div class="page-heading text-center">
-    <h1>Convert to Uppercase</h1>
-    <p>Convert any text into uppercase letters.</p>
-    <div class="heading-line mx-auto"></div>
-</div>
-
-{% if result %}
-<div class="result-display text-center mb-5">
-    <span class="result-label">Converted String</span>
-    <div class="result-value">
-        {{ result }}
+<div class="container py-5">
+    <div class="page-heading">
+        <h1>Circle Calculator</h1>
+        <div class="heading-line"></div>
+        <p>Calculate the area of a circle using its radius.</p>
     </div>
-</div>
-{% endif %}
 
-<div class="row justify-content-center">
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Enter the radius</h2>
 
-    <div class="col-lg-7">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="radius" class="form-label">
+                                Radius
+                            </label>
 
-        <div class="card shadow-sm">
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="radius"
+                                name="radius"
+                                min="0"
+                                step="any"
+                                value="{{ radius if radius is not none else '' }}"
+                                placeholder="Enter the radius"
+                                required
+                            >
+                        </div>
 
-            <div class="card-body p-4">
-
-                <div class="text-center mb-4">
-                    <div class="shape-icon">
-                        <i class="bi bi-type"></i>
-                    </div>
-                </div>
-
-                <form action="/works" method="post">
-
-                    <label
-                        for="inputString"
-                        class="form-label"
-                    >
-                        Enter a string
-                    </label>
-
-                    <div class="input-group">
-
-                        <input
-                            type="text"
-                            id="inputString"
-                            name="inputString"
-                            class="form-control"
-                            placeholder="Enter your text..."
-                            required
-                        >
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                        >
-                            Convert
+                        <button type="submit" class="btn btn-primary">
+                            Calculate Area
                         </button>
+                    </form>
 
+                    {% if error %}
+                    <div class="alert alert-danger mt-4 mb-0" role="alert">
+                        {{ error }}
                     </div>
+                    {% endif %}
 
-                </form>
-
+                    {% if area is not none %}
+                    <div class="result-display mt-4">
+                        <span class="result-label">Circle Area</span>
+                        <span class="result-value">{{ area }}</span>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-
         </div>
 
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Formula</h2>
+
+                    <div class="result-display mb-4">
+                        <span class="result-label">Area of a Circle</span>
+                        <span class="result-value">A = πr²</span>
+                    </div>
+
+                    <p>
+                        The area of a circle is calculated by multiplying
+                        pi by the radius squared.
+                    </p>
+
+                    <ul class="outline-list">
+                        <li><strong>A</strong> — area of the circle</li>
+                        <li><strong>π</strong> — approximately 3.14159</li>
+                        <li><strong>r</strong> — radius of the circle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
-
 {% endblock %}

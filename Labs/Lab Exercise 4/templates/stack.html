@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Stack{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <h1>Stack</h1>
+    <p>A LIFO data structure: the last item pushed is the first one popped.</p>
+    <div class="heading-line"></div>
+</div>
+
+{% if message %}
+<div class="alert alert-{{ message_type }}">
+    {{ message }}
+</div>
+{% endif %}
+
+<div class="row g-4">
+
+    <!-- Operations -->
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body p-4">
+
+                <h3 class="card-title mb-3">Operations</h3>
+
+                <form method="POST" class="mb-3">
+                    <label for="push_value" class="form-label">Push a value</label>
+                    <div class="d-flex gap-2">
+                        <input
+                            type="text"
+                            id="push_value"
+                            name="push_value"
+                            class="form-control"
+                            placeholder="Enter a value"
+                            required
+                        >
+                        <button type="submit" class="btn btn-primary">Push</button>
+                    </div>
+                </form>
+
+                <hr>
+
+                <div class="d-flex gap-2">
+                    <form method="POST">
+                        <button type="submit" name="pop" class="btn btn-outline-danger">Pop</button>
+                    </form>
+
+                    <form method="POST">
+                        <button type="submit" name="peek" class="btn btn-outline-light">Peek</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Stack display -->
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body p-4">
+
+                <h3 class="card-title mb-3">Current Stack</h3>
+
+                {% if values %}
+                <ul class="outline-list">
+                    {% for value in values %}
+                    <li>
+                        {{ value }}
+                        {% if loop.first %}
+                        <span class="badge text-bg-primary ms-2">TOP</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted mb-0">The stack is empty.</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
