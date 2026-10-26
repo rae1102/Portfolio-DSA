@@ -2,7 +2,13 @@
 {% block title %}Home Page {% endblock %}
 
 {% block content %}
-<h1>Hello, Reyn</h1>
+<h1>To Do</h1>
+
+{% for message in get_flashed_messages() %}
+<p>{{message}}</p>
+{% endfor %}
+
+
 
 <form method="post">
     <p>Enter task: <input type="text" name="task"></p>
@@ -12,7 +18,7 @@
 <ul>
 {% for task in tasks %}
 
-    <li class="task-item">{{ task }} <a class="delete-link" href="{{url_for('delete', index = loop.index0)}}">Delete</a></li>
+    <li class="task-item">{{ task.content }} <a class="delete-link" href="{{url_for('delete', index = task.id)}}">Delete</a></li>
 
 {% endfor %}
 </ul>
