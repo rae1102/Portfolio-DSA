@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Home Page {% endblock %}
+
+{% block content %}
+<h1>Hello, Reyn</h1>
+
+<form method="post">
+    <p>Enter task: <input type="text" name="task"></p>
+    <p id="submit-btn"><input type="submit"></p>
+</form>
+
+<ul>
+{% for task in tasks %}
+
+    <li class="task-item">{{ task }} <a class="delete-link" href="{{url_for('delete', index = loop.index0)}}">Delete</a></li>
+
+{% endfor %}
+</ul>
+{% endblock %}

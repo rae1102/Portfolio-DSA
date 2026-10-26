@@ -1,0 +1,28 @@
+body {
+    background-color: gray;
+}
+
+#submit-btn {
+    position: relative;
+}
+
+.delete-link {
+    text-decoration: underline;
+    color: rgb(20, 19, 19);
+    font-weight: bold;
+    display: inline-block; /* Required for the scale transform to work properly on an anchor tag */
+    
+    /* Smoothly animates both the color and the size change over 0.2 seconds */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-link:hover {
+    color: #ff0000;         /* Changes the text color to red */
+    transform: scale(1.1);  /* Enlarges the link by 10% */
+}
+
+.task-item {
+    color: black;
+    font-weight: bold;
+    font-size:larger;
+}
