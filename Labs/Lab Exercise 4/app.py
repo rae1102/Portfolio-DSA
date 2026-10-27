@@ -121,11 +121,7 @@ def stack():
                 message = f"Peek: {peek}"
                 message_type = "success"
             
-
     values = sstack.get_values()
-        
-
-            
     return render_template("stack.html", values = values, message=message, message_type=message_type)
 
 @app.route('/contact')
