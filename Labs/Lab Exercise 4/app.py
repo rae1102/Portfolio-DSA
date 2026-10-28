@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request
 from linkedlist import LinkedList
 from stack import Stack
+from queue import Queue
 
 
 app = Flask(__name__)
 linked_list = LinkedList()
 sstack = Stack()
+q = Queue()
 
 @app.route('/')
 def index():
@@ -120,9 +122,39 @@ def stack():
             else:
                 message = f"Peek: {peek}"
                 message_type = "success"
-            
+
     values = sstack.get_values()
     return render_template("stack.html", values = values, message=message, message_type=message_type)
+
+@app.route('/works/queue', methods = ["GET", "POST"])
+def queue():
+    message = None
+    message_type = None
+    values = q.get_values()
+
+    if request.method == "POST":
+        if 'enqueue_value' in request.form:
+            enqueue = request.form.get('enqueue_value')
+            q.enqueue(enqueue)
+        elif 'dequeue' in request.form:
+            dqueue = q.dequeue()
+            if dqueue == None:
+                message = "The queue is empty, nothing to dequeue."
+                message_type = "danger"
+            else:
+                message = f"Dequeued: {dqueue}"
+                message_type = "success"
+        elif 'peek' in request.form:
+            peek = q.peek()
+            if peek == None:
+                message = "The queue is empty, no front to peek."
+                message_type = "danger"
+            else:
+                message = f"Front: {peek}"
+                message_type = "success"
+
+    values = q.get_values()
+    return render_template("queue.html", values = values, message = message, message_type = message_type)
 
 @app.route('/contact')
 def contact():

@@ -2,5 +2,87 @@
 {% block title %}Queue{% endblock %}
 
 {% block content %}
+<div class = "page-heading">
+    <h1>Stack</h1>
+    <p>A FIFO data structure: First in First Out</p>
+    <div class="heading-line"></div>
+</div>
+
+{% if message %}
+<div class="alert alert-{{ message_type }}">
+    {{ message }}
+</div>
+{% endif %}
+
+<div class="row g-4">
+
+    <!-- Operations -->
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body p-4">
+
+                <h3 class="card-title mb-3">Operations</h3>
+
+                <form method="POST" class="mb-3">
+                    <label for="enqueue_value" class="form-label">Queue</label>
+                    <div class="d-flex gap-2">
+                        <input
+                            type="text"
+                            id="enqueue_value"
+                            name="enqueue_value"
+                            class="form-control"
+                            placeholder="Enqueue a value"
+                            required
+                        >
+                        <button type="submit" class="btn btn-primary">Enqueue</button>
+                    </div>
+                </form>
+
+                <hr>
+
+                <div class="d-flex gap-2">
+                    <form method="POST">
+                        <button type="submit" name="dequeue" class="btn btn-outline-danger">Dequeue</button>
+                    </form>
+
+                    <form method="POST">
+                        <button type="submit" name="peek" class="btn btn-outline-light">Peek</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- queue display -->
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body p-4">
+
+                <h3 class="card-title mb-3">Current Queue</h3>
+
+                {% if values %}
+                <div class="queue-row">
+                    {% for value in values %}
+                    <div class="queue-item">
+                        <span class="queue-value">{{ value }}</span>
+                        {% if loop.first %}<span class="queue-tag">Front</span>{% endif %}
+                        {% if loop.last %}<span class="queue-tag">Rear</span>{% endif %}
+                    </div>
+                    {% if not loop.last %}
+                    <i class="bi bi-arrow-right queue-arrow"></i>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted mb-0">The queue is empty.</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 {% endblock %}

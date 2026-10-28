@@ -661,3 +661,56 @@ hr {
 
     display: block;
 }
+
+/* ========================================
+   QUEUE DISPLAY
+   ======================================== */
+
+.queue-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.queue-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    min-width: 70px;
+
+    padding: 12px 16px;
+
+    background-color: var(--surface-light);
+
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--gold);
+
+    border-radius: 8px;
+}
+
+.queue-value {
+    color: var(--gold-light);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+.queue-tag {
+    color: var(--text-muted);
+
+    font-size: 0.65rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.queue-arrow {
+    color: var(--gold-dark);
+}
